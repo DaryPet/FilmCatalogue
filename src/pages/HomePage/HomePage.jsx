@@ -4,14 +4,19 @@ import { useState, useEffect } from "react";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function fetchFilms() {
       try {
+        setLoading(true);
         const response = await filmsData("day");
         setMovies(response.data.results);
       } catch (error) {
-        console.error();
+        setError(true);
+      } finally {
+        setLoading(false);
       }
     }
     fetchFilms();
@@ -19,6 +24,7 @@ export default function HomePage() {
 
   return (
     <div>
+      <p>{loading && <b>Loading page...</b>}</p>
       <MovieList movies={movies} />
     </div>
   );

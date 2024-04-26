@@ -17,11 +17,11 @@ export default function App() {
   return (
     <div>
       <Layout>
-        <Navigation></Navigation>
+        {/* <Navigation></Navigation> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
-          <Route path="/movies/:filmId" element={<MovieDetailsPage />}>
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
             <Route path="cast" element={<MovieCast />} />
             <Route path="reviews" element={<MovieReviews />} />
           </Route>

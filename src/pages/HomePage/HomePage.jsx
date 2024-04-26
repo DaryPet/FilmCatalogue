@@ -1,4 +1,4 @@
-import MovieList from "../../conmonents/MovieList/MovieList";
+import MovieList from "../../components/MovieList/MovieList.jsx";
 import { filmsData } from "../../api-movies.js";
 import { useState, useEffect } from "react";
 

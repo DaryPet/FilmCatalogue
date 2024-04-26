@@ -1,8 +1,8 @@
 // import { Link } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import { lazy } from "react";
-import Layout from "../conmonents/Layout/Layout";
-// import "./App.css";
+import Layout from "./Layout/Layout";
+import Navigation from "../components/Navigation/Navigation";
 
 const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
 const MoviesPage = lazy(() => import("../pages/MoviesPage/MoviesPage"));
@@ -16,8 +16,8 @@ const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
 export default function App() {
   return (
     <div>
-      <h1>Hello</h1>
       <Layout>
+        <Navigation></Navigation>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />

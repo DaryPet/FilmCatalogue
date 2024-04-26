@@ -1,0 +1,11 @@
+.link {
+  text-decoration: none;
+  padding: 12px;
+  display: inline-flex;
+}
+.link:hover {
+  color: brown;
+}
+.active {
+  background-color: aqua;
+}

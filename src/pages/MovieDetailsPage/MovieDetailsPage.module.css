@@ -1,0 +1,24 @@
+.wrap {
+  margin-top: 20px;
+  margin-left: 20px;
+  display: flex;
+  gap: 20px;
+}
+.container {
+  margin-top: 100px;
+}
+.linkHome {
+  color: blueviolet;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.overview {
+  width: 600px;
+}
+.moreInfo {
+  margin-top: 20px;
+}
+.link {
+  display: flex;
+  gap: 40px;
+}

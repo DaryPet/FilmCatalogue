@@ -1,6 +1,7 @@
 import MovieList from "../../components/MovieList/MovieList.jsx";
 import { filmsData } from "../../api-movies.js";
 import { useState, useEffect } from "react";
+import css from "./HomePage.module.css";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -23,9 +24,9 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div>
-      <p>{loading && <b>Loading page...</b>}</p>
-      <MovieList movies={movies} />
+    <div className={css.wraper}>
+      <p className={css.loading}>{loading && <b>Loading page...</b>}</p>
+      <MovieList className={css.list} movies={movies} />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-.link {
+/* .link {
   text-decoration: none;
   padding: 12px;
   display: inline-flex;
@@ -8,4 +8,31 @@
 }
 .active {
   background-color: aqua;
+} */
+.list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  background-color: #fff; /* Цвет фона */
+  border-bottom: 1px solid #ccc; /* Добавим разделительную линию снизу */
+}
+
+.link {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 20px;
+}
+
+.link:hover {
+  color: #666;
+}
+
+.active {
+  font-weight: bold;
+  color: black;
+  background-color: orchid;
 }

@@ -2,6 +2,7 @@ import SearchForm from "../../components/SearchForm/SearchForm";
 import MovieList from "../../components/MovieList/MovieList";
 import { useState } from "react";
 import { filmQueryData } from "../../api-movies";
+import css from "./MoviePage.module.css"
 
 export default function MoviesPage() {
   const [movie, setMovie] = useState([]);
@@ -21,8 +22,8 @@ export default function MoviesPage() {
     }
   };
   return (
-    <div>
-      <SearchForm onSubmit={handleSearch} />
+    <div className={css.container}>
+      <SearchForm className={css.form} onSubmit={handleSearch} />
       {loading && <p>Loading...</p>}
       {error && <p>Error</p>}
       {movie.length > 0 && <MovieList movies={movie} />}

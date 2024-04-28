@@ -25,6 +25,7 @@ export default function HomePage() {
 
   return (
     <div className={css.wraper}>
+      <h2 className={css.title}>Trending Today</h2>
       <p className={css.loading}>{loading && <b>Loading page...</b>}</p>
       <MovieList className={css.list} movies={movies} />
     </div>

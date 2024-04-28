@@ -4,7 +4,7 @@ import css from "./MovieList.module.css";
 export default function MovieList({ movies }) {
   return (
     <div className={css.wraper}>
-      <h2 className={css.title}>Trending Today</h2>
+      {/* <h2 className={css.title}>Trending Today</h2> */}
       <ul className={css.list}>
         {movies.map((movie) => (
           <li className={css.item} key={movie.id}>

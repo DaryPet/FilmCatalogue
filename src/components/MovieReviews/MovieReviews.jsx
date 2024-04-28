@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { filmReviewsData } from "../../api-movies";
+import css from "./MovieReviews.module.css";
 
 export default function MovieReviwes() {
   const { movieId } = useParams();
@@ -25,21 +26,21 @@ export default function MovieReviwes() {
   }, [movieId]);
 
   return (
-    <div>
-      <h2>Reviews</h2>
+    <div className={css.container}>
+      <h2 className={css.title}>Reviews</h2>
       {loading && <p>Loading reviews...</p>}
       {error && <p>Error fetching reviews.</p>}
       {reviews && reviews.length > 0 ? (
-        <ul>
+        <ul className={css.list}>
           {reviews.map((review, index) => (
-            <li key={index}>
-              <p>Author: {review.author}</p>
-              <p>{review.content}</p>
+            <li className={css.wrap} key={index}>
+              <p className={css.name}>Author: {review.author}</p>
+              <p className={css.review}>{review.content}</p>
             </li>
           ))}
         </ul>
       ) : (
-        <p>No reviews available.</p>
+        <p className={css.noReviews}>No reviews available.</p>
       )}
     </div>
   );

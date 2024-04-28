@@ -2,8 +2,6 @@ import SearchForm from "../../components/SearchForm/SearchForm";
 import MovieList from "../../components/MovieList/MovieList";
 import { useState } from "react";
 import { filmQueryData } from "../../api-movies";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
 
 export default function MoviesPage() {
   const [movie, setMovie] = useState([]);

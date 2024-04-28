@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { useParams, useLocation, Link, NavLink } from "react-router-dom";
+import { useState, useEffect, Suspense } from "react";
+import { useParams, Link, NavLink, Outlet } from "react-router-dom";
 import { filmIdData } from "../../api-movies";
 
 export default function MovieDetailsPage() {
@@ -32,9 +32,9 @@ export default function MovieDetailsPage() {
   const { title, genres, overview, vote_average, path } = movie;
   const userScore = `${vote_average * 10}%`;
 
-  console.log(genres);
   return (
     <div>
+      <Link to="/">Go Back</Link>
       <div>
         <img
           src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
@@ -51,9 +51,20 @@ export default function MovieDetailsPage() {
         <p>{genres.map((genre) => genre.name).join(", ")}</p>
       </div>
       <ul>
-        <NavLink to="cast">Cast</NavLink>
-        <NavLink to="review">Reviews</NavLink>
+        <NavLink to="cast">Cast </NavLink>
+        <NavLink to="reviews">Reviews</NavLink>
       </ul>
+      <div>
+        <Suspense
+          fallback={
+            <div>
+              <p>Loading...</p>
+            </div>
+          }
+        >
+          <Outlet />
+        </Suspense>
+      </div>
     </div>
   );
 }

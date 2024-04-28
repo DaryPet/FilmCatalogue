@@ -1,8 +1,9 @@
 // import { Link } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import { lazy } from "react";
+// import { Suspense } from "react";
 import Layout from "./Layout/Layout";
-import Navigation from "../components/Navigation/Navigation";
+// import Navigation from "../components/Navigation/Navigation";
 
 const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
 const MoviesPage = lazy(() => import("../pages/MoviesPage/MoviesPage"));
@@ -17,7 +18,6 @@ export default function App() {
   return (
     <div>
       <Layout>
-        {/* <Navigation></Navigation> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />

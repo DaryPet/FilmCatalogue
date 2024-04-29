@@ -1,13 +1,22 @@
 import SearchForm from "../../components/SearchForm/SearchForm";
 import MovieList from "../../components/MovieList/MovieList";
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { filmQueryData } from "../../api-movies";
-import css from "./MoviePage.module.css"
+import css from "./MoviePage.module.css";
 
 export default function MoviesPage() {
   const [movie, setMovie] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const query = searchParams.get("query");
+    if (query) {
+      handleSearch(query);
+    }
+  }, [searchParams]);
 
   const handleSearch = async (query) => {
     try {

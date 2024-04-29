@@ -1,5 +1,11 @@
-import { useState, useEffect, Suspense } from "react";
-import { useParams, Link, NavLink, Outlet } from "react-router-dom";
+import { useState, useEffect, Suspense, useRef } from "react";
+import {
+  useParams,
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
 import { filmIdData } from "../../api-movies";
 import css from "./MovieDetailsPage.module.css";
 
@@ -8,6 +14,8 @@ export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const location = useLocation();
+  const prevLocation = useRef(location.state ?? "/movies");
 
   useEffect(() => {
     async function fetchMovieDetails() {
@@ -31,12 +39,11 @@ export default function MovieDetailsPage() {
   }
 
   const { title, genres, overview, vote_average, poster_path } = movie;
-  // const userScore = `${vote_average * 10}%`;
   const userScore = `${Math.round(vote_average * 10)}%`;
 
   return (
     <div className={css.container}>
-      <Link className={css.linkHome} to="/">
+      <Link className={css.linkHome} to={prevLocation.current}>
         Go Back
       </Link>
       <div className={css.wrap}>

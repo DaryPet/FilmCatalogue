@@ -31,7 +31,8 @@ export default function MovieDetailsPage() {
   }
 
   const { title, genres, overview, vote_average, poster_path } = movie;
-  const userScore = `${vote_average * 10}%`;
+  // const userScore = `${vote_average * 10}%`;
+  const userScore = `${Math.round(vote_average * 10)}%`;
 
   return (
     <div className={css.container}>

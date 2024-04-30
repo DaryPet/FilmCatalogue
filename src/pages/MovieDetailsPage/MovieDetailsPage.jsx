@@ -14,6 +14,7 @@ export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+
   const location = useLocation();
   const prevLocation = useRef(location.state ?? "/movies");
 
@@ -35,7 +36,7 @@ export default function MovieDetailsPage() {
   }, [movieId]);
 
   if (!movie) {
-    return;
+    return null;
   }
 
   const { title, genres, overview, vote_average, poster_path } = movie;

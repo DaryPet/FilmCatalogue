@@ -13,7 +13,7 @@ export default function MovieList({ movies }) {
             <NavLink
               to={{
                 pathname: `/movies/${movie.id}`,
-                state: { from: location },
+                state: { location },
               }}
             >
               {movie.title}

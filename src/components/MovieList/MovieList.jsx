@@ -10,12 +10,7 @@ export default function MovieList({ movies }) {
         {movies.map((movie) => (
           <li className={css.item} key={movie.id}>
             {/* <NavLink to={`/movies/${movie.id}`}>{movie.title}</NavLink> */}
-            <NavLink
-              to={{
-                pathname: `/movies/${movie.id}`,
-                state: { location },
-              }}
-            >
+            <NavLink to={`/movies/${movie.id}`} state={location}>
               {movie.title}
             </NavLink>
           </li>

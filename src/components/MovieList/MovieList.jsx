@@ -9,7 +9,6 @@ export default function MovieList({ movies }) {
       <ul className={css.list}>
         {movies.map((movie) => (
           <li className={css.item} key={movie.id}>
-            {/* <NavLink to={`/movies/${movie.id}`}>{movie.title}</NavLink> */}
             <NavLink to={`/movies/${movie.id}`} state={location}>
               {movie.title}
             </NavLink>

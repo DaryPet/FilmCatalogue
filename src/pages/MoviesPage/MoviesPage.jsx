@@ -9,7 +9,7 @@ export default function MoviesPage() {
   const [movie, setMovie] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     const query = searchParams.get("query");
@@ -30,9 +30,12 @@ export default function MoviesPage() {
       setLoading(false);
     }
   };
+  const handleSubmit = (query) => {
+    setSearchParams({ query: query });
+  };
   return (
     <div className={css.container}>
-      <SearchForm className={css.form} onSubmit={handleSearch} />
+      <SearchForm className={css.form} onSubmit={handleSubmit} />
       {loading && <p>Loading...</p>}
       {error && <p>Error</p>}
       {movie.length > 0 && <MovieList movies={movie} />}

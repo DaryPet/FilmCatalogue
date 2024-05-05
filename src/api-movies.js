@@ -28,6 +28,10 @@ export async function filmReviewsData(id) {
   const url = `${baseURL}/movie/${id}/reviews`;
   return await axios.get(url, options);
 }
+export async function filmVideosData(id) {
+  const url = `${baseURL}/movie/${id}/videos?language=en-US`;
+  return await axios.get(url, options);
+}
 
 export async function filmQueryData(query) {
   const url = `${baseURL}/search/movie?query=${query}&language=en-US`;

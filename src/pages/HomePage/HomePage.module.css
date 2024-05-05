@@ -1,7 +1,13 @@
 .title {
+  border: 1px solid white;
   color: orchid;
-  margin-left: 40px;
+  margin: auto;
+  text-align: center;
+  width: 250px;
+  padding: 5px;
 }
 .wraper {
-  margin-top: 80px;
+  margin-top: 60px;
+
+  padding-top: 20px;
 }

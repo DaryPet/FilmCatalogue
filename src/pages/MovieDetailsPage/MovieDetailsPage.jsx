@@ -50,6 +50,7 @@ export default function MovieDetailsPage() {
       <div className={css.wrap}>
         <div className={css.img}>
           <img
+            className={css.img}
             src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
             alt={title}
           />

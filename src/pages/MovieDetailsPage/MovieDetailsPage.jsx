@@ -39,7 +39,8 @@ export default function MovieDetailsPage() {
     return null;
   }
 
-  const { title, genres, overview, vote_average, poster_path } = movie;
+  const { title, genres, overview, vote_average, poster_path, release_date } =
+    movie;
   const userScore = `${Math.round(vote_average * 10)}%`;
 
   return (
@@ -57,13 +58,16 @@ export default function MovieDetailsPage() {
         </div>
 
         <div className={css.info}>
-          <h2 className={css.title}>{title}</h2>
-          <p className={css.score}>User Score: {userScore}</p>
-          <h3 className={css.overviewTitle}>Overview:</h3>
-          <p className={css.overview}>{overview}</p>
-          <h3 className={css.genresTitle}>Genres:</h3>
-          <p className={css.genres}>
-            {genres.map((genre) => genre.name).join(" ")}
+          <h2 className={css.title}>
+            {title} ({release_date})
+          </h2>
+          <p className={css.text}>User Score: {userScore}</p>
+
+          <h3 className={css.blockTitles}>Overview:</h3>
+          <p className={css.text}>{overview}</p>
+          <h3 className={css.blockTitles}>Genres:</h3>
+          <p className={css.text}>
+            {genres.map((genre) => genre.name).join(" | ")}
           </p>
         </div>
       </div>
@@ -74,6 +78,9 @@ export default function MovieDetailsPage() {
         <NavLink className={css.link} to="reviews">
           Reviews
         </NavLink>
+        {/* <NavLink className={css.link} to="trailer">
+          Whatch Trailer
+        </NavLink> */}
       </ul>
       <div>
         <Suspense
